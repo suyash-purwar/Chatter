@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-
-const Messages = new Schema({
+const Schema = new mongoose.Schema({
    author: {
       type: String,
       minLength: 3,
@@ -16,4 +14,5 @@ const Messages = new Schema({
    }
 });
 
+const Messages = mongoose.model('messages', Schema);
 module.exports = {Messages};

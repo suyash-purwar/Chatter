@@ -92,9 +92,9 @@ button[class="sending-button"]:hover {
 /* Styles for modal */
 .submitBut {
    margin-top: 5%;
-   border: 2px solid grey;
+   border: 2px solid black;
    cursor: pointer;
-   border-radius: 10px;
+   border-radius: 4px;
    width: 120px;
    font-family: 'Century Gothic';
    font-size: 17px;
