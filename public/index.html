@@ -4,14 +4,62 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+   <link rel = "stylesheet" href = "style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    <title>Chatter</title>
 </head>
-<body>
+<body onload="showPopUp()">
 
+   <div class = "superBox" id = "userBox">
+      <div class = "popUp_Box">
+         <div class="closeBut">
+            <i class = "fa fa-close fa-2x" onclick = "closePopUp()"></i>
+         </div>
+         <center class = "user-input-fields">
+            <p class = "sign_in">Sign in</p>
 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <input class = "user_name" type = "text" placeholder = "User name" name = "user_name"/>
+
+            <br><br>
+
+            <input class = "user_password" type = "password" placeholder="Password" name = "user_password"/>
+
+            <div class = "submitBut" onclick = "verifyUser()">Submit</div>
+            </form>
+         </center>
+      </div>
+   </div>
+
+   <div class = "container">
+      <div class = "chat-window">
+         <div id = "output-msg" class = "output-window">
+
+         </div>
+         <div id = "input-window" class = "input-window">
+
+         </div>
+
+         <div class = "send-msg-area">
+            <div class = "input-container">
+               <span>
+                  <input type = "text" class = "msg-box" placeholder = "Write here..." name = "message" id = "message"/>
+                  <button type = "submit" class = "sending-button">
+                     <i class = "fa fa-send"></i>
+                  </button>
+               </span>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script> -->
+   <script src="chat.js"></script>
+   <script>
+      showPopUp = () => document.getElementById('userBox').style.display = "block";
+      closePopUp = () => document.getElementById('userBox').style.display = "none";
+   </script>
 </body>
 </html>
