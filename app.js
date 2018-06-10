@@ -74,5 +74,7 @@ io.on("connection", (socket) => {
       }, (err) => {
          console.log("error");
       });
-   })
-})
+   });
+});
+
+// URI => mongodb://<admin>:<0admin>@ds251845.mlab.com:51845/chatter
