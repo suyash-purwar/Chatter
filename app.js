@@ -11,6 +11,9 @@ const server = app.listen(3000, () => {
    console.log("Started up on port 3000");
 });
 
+
+// const port = process.env.PORT || 3000;
+
 // Enabling CORS
 app.use(cors());
 
@@ -41,11 +44,14 @@ io.on("connection", (socket) => {
             socket.emit("Unauthorized user", {
                userData: null
             });
+         } else {
+            console.log("Done")
          }
       });
    });
+});
 
-
+io.on("connection", (socket) => {
    // Sending message
    socket.on("send-message", (data) => {
       io.sockets.emit("send-message", data);
@@ -59,3 +65,14 @@ io.on("connection", (socket) => {
       });
    });
 });
+
+
+io.on("connection", (socket) => {
+   socket.on("fetchMessagesFromDB", (data) => {
+      Message.find().then((messages) => {
+         socket.emit("getOldMessages", {messages});
+      }, (err) => {
+         console.log("error");
+      });
+   })
+})

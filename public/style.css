@@ -8,9 +8,10 @@ p, h1, h2, h3, h4, h5, h6, li, ol, input {
 }
 
 body {
-  background: #007991;
-  background: -webkit-linear-gradient(to right, #78ffd6, #007991);
-  background: linear-gradient(to right, #78ffd6, #007991);
+  background-image: url('assets/images/wallpaper.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 p {
@@ -19,41 +20,29 @@ p {
    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.msg {
+  font-size: 16px;
+  font-family: Calibri Light;
+}
+
 .message-sender {
    font-weight: bold;
    color: rgba(0, 0, 0, 0.623);
-   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.chat-window {
-   display: grid;
-   grid-template-columns: 6fr 6fr;
-   grid-gap: 10px;
+   font-family: Calibri Light;
+   font-size: 15px;
 }
 
 .message-box {
-   border: 1px solid lightgrey;
-   background-color: lightgrey;
-   padding: 15px;
-   border-radius: 10px;
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+  padding: 5px 10px;
+  display: block;
+  max-width: calc(100vw - 40vw);
+  clear: both;
 }
-
-.message-sub-box {
-   background-color: white;
-   padding: 2px;
-   border-radius: 10px;
-}
-
-.output-window > .message-box {
-   float: left;
-}
-
-.input-window > .message-box {
-   float: right;
-}
-
 .send-msg-area {
-   position: absolute;
+   position: fixed;
    right: 0;
    bottom: 0;
    left: 0;
