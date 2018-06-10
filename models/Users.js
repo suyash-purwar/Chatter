@@ -12,6 +12,11 @@ const Schema = new mongoose.Schema({
       required: true,
       trim: true,
       minLength: 6
+   },
+
+   isAdmin: {
+      type: Boolean,
+      required: true
    }
 });
 

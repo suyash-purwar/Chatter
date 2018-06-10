@@ -4,27 +4,66 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
    <link rel = "stylesheet" href = "style.css">
+   <link rel = "stylesheet" href = "bootstrap/bootstrap.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
    <title>Chatter</title>
 </head>
-<body onload="showPopUp()">
+<body>
 
-   <div class = "superBox" id = "userBox">
-      <div class = "popUp_Box">
-         <center class = "user-input-fields">
-            <p class = "sign_in">Sign in</p>
+   <div class="modal fade" data-backdrop = "false" data-keyboard = "false" id = "userBox" data-focus = "true" tabindex="-1" role="dialog" aria-labelledby="example">
+      <div class="modal-dialog " role="document">
+         <div class="modal-content popUp_Box">
+            <div class="modal-body" style = "padding: 30px 40px">
+               <p class = "sign_in">Sign in</p>
+               <small class = "text-muted" style = "display:none; text-align: center" id = "msgForUnauthUsers">Wrong name and password. Try one more time</small>
 
-            <input class = "user_name" type = "text" placeholder = "User name" name = "user_name" value = "Indu Malik"/>
+               <input class = "user_name" type = "text" placeholder = "User name" name = "user_name" value = "Indu Malik"/>
 
-            <br><br>
+               <br><br>
+   
+               <input class = "user_password" type = "password" placeholder="Password" name = "user_password" value = "indu@1992"/>
 
-            <input class = "user_password" type = "password" placeholder="Password" name = "user_password" value = "indu@1992"/>
+               <br><br>
 
-            <div class = "submitBut" onclick = "verifyUser()">Submit</div>
-            </form>
-         </center>
+               <div class = "submitUser" onclick = "verifyUser()">Submit</div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- Alert message for authorised user -->
+   <div class="modal fade" id = "successAlertPopup" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+         <div class="modal-content popUp_Box2">
+            <div class="modal-body" style = "padding: 60px 40px">
+               <!-- Success message will come here -->
+               <p class = "center" style = "font-family: Century Gothic; font-size: 40px; text-align: center" id = "heroSuccessMessage"></p>
+               <p style = "font-family: Century Gothic; text-align:center; font-size: 16px">
+                  <b id = "tip-head">Tip for you</b>
+                  <p style = "text-align: center" id = "tipsForYou"></p>
+               </p>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- Write something model -->
+   <div class="modal fade" id = "writeSomethingPopup" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+         <div class="modal-content popUp_Box2">
+            <div class="modal-body" style = "padding: 60px 40px">
+               <!-- Write something message -->
+               <h4 style = "text-align: center">Huhh, You are so lazy</h4>
+               
+               <br>
+
+               <p style = "font-size: 18px; text-align: center" id  = "writeSomethingMessage"></p>
+            </div>
+         </div>
       </div>
    </div>
 
@@ -40,8 +79,8 @@
          <div class = "send-msg-area">
             <div class = "input-container">
                <span>
-                  <input type = "text" class = "msg-box" placeholder = "Write here..." name = "message" id = "message"/>
-                  <button type = "submit" class = "sending-button">
+                  <input type = "text" id = "msg_box" class = "msg-box" placeholder = "Write here..." name = "message" id = "message"/>
+                  <button onclick = "sendNewMessage()" type = "submit" class = "sending-button">
                      <i class = "fa fa-send"></i>
                   </button>
                </span>
@@ -50,12 +89,11 @@
       </div>
    </div>
 
-   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="jquery/jquery-3.2.1.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script> -->
+   <script src="bootstrap/bootstrap.min.js"></script>
    <script src="chat.js"></script>
    <script>
-      showPopUp = () => document.getElementById('userBox').style.display = "block";
 
    </script>
 </body>

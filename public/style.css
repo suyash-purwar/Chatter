@@ -1,14 +1,16 @@
-body {
-   background: #0cebeb;  /* fallback for old browsers */
-   background: -webkit-linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb);  /* Chrome 10-25, Safari 5.1-6 */
-   background: linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-   
+* {
+  font-family: 'Century Gothic';
+
 }
 
-.container {
-   max-width: 960px;
-   margin: auto;
-   display: block;
+p, h1, h2, h3, h4, h5, h6, li, ol, input {
+  font-family: 'Century Gothic';
+}
+
+body {
+  background: #007991;
+  background: -webkit-linear-gradient(to right, #78ffd6, #007991);
+  background: linear-gradient(to right, #78ffd6, #007991);
 }
 
 p {
@@ -82,53 +84,16 @@ button[class="sending-button"] {
    color: white;
    padding: 15px;
    border-radius: 100%;
-}
-
-button[class="sending-button"]:hover {
-   transform: rotate(360deg);
-   transition: .6s;
+   width: 55px;
+   height: 55px;
 }
 
 /* Styles for modal */
-.submitBut {
-   margin-top: 5%;
-   border: 2px solid black;
-   cursor: pointer;
-   border-radius: 4px;
-   width: 120px;
-   font-family: 'Century Gothic';
-   font-size: 17px;
-   padding: 5px;
- }
 
 .closeBut {
    right: 10px;
    color: black;
    border-radius: 100%;
-   position: absolute;
-}
-
-.button {
-   position: absolute;
-   top: 10px;
-   right: 10px;
-   color: white;
-   border: 2px solid white;
-   border-radius: 20px;
-   padding: 8px;
-   cursor: pointer;
-}
-
-.button:hover, .button:active {
-   background-color: white;
-   color: black;
-}
-
-.button_text{
-   text-align: center;
-   cursor: pointer;
-   font-size: 19px;
-   font-family: 'Calibri Light', 'Century Gothic';
 }
 
 .superBox {
@@ -143,19 +108,27 @@ button[class="sending-button"]:hover {
    overflow: auto;
 }
 
-.popUp_Box{
-   background: #A1FFCE;  /* fallback for old browsers */
-   background: -webkit-linear-gradient(to right, #FAFFD1, #A1FFCE);  /* Chrome 10-25, Safari 5.1-6 */
-   background: linear-gradient(to right, #FAFFD1, #A1FFCE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-   
-   position: relative;
-   width: 650px;
-   height: 450px;
-   padding: 10px;
-   margin: auto;
-   border-radius: 10px;
-   animation-name: movePopUp;
-   animation-duration: .7s;
+.popUp_Box2 {
+  background-color: white;
+}
+
+.submitUser {
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 5px 10px;
+  display: block;
+  margin: auto;
+  color: white;
+  background: black;
+  text-align: center;
+  position: relative;
+  width: 90px;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.submitUser:hover {
+  width: 110px;
 }
 
 .user-input-fields {
@@ -165,19 +138,27 @@ button[class="sending-button"]:hover {
 
 .user_name, .user_password {
    outline: none;
-   width: 90%;
+   width: 100%;
    border-right: none;
+   display:block;
+   margin: auto;
    border-top: none;
    border-left: none;
    background-color: transparent;
-   border-bottom:1px solid black;
+   border-bottom:2px solid black;
    color: rgba(0, 0, 0, 0.979);
    padding: 9px 10px;
    font-size: 16px;
+   transition: .6s;
+}
+
+.user_name:focus, .user_password:focus {
+  border-bottom: 1px solid black;
 }
 
 .sign_in {
    font-size: black;
+   text-align: center;
    font-family: Century Gothic;
    font-size: 40px;
 }
