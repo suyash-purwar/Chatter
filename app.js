@@ -6,13 +6,13 @@ const {mongoose} = require("./db/mongoose");
 const {Users} = require("./models/Users");
 const {Message} = require("./models/Messages");
 
+// Setting up port
+const port = process.env.PORT || 3000;
+
 const app = express();
-const server = app.listen(3000, () => {
-   console.log("Started up on port 3000");
+const server = app.listen(port, () => {
+   console.log(`Started up on port ${port}`);
 });
-
-
-// const port = process.env.PORT || 3000;
 
 // Enabling CORS
 app.use(cors());
@@ -57,7 +57,7 @@ io.on("connection", (socket) => {
       io.sockets.emit("send-message", data);
       new Message({
          author: data.data.author,
-         message: data.data.msg
+         message: data.data.message
       }).save().then((msg_data) => {
          console.log("Message is sent successfully");
       }, (err) => {
