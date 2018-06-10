@@ -147,7 +147,7 @@ function sendNewMessage() {
 // Catches the message
 // Updates the DOM
 socket.on("send-message", (data) => {
-   if (data.data.author == currentUser.author) {
+   if (data.data.author == currentUser.user_name) {
       // Prints the message sent by you on right
       printMessageOnRight(data.data);
    } else {
@@ -187,7 +187,6 @@ printAllOldMessages = () => {
       messages_data.messages.forEach((message) => {
          if (message.author == currentUser.user_name) {
             // Prints the message sent by you on right
-            console.log(message);
             printMessageOnRight(message);
          } else {
             // Prints the message sent by other user on left
