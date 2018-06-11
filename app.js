@@ -44,8 +44,6 @@ io.on("connection", (socket) => {
             socket.emit("Unauthorized user", {
                userData: null
             });
-         } else {
-            console.log("Done")
          }
       });
    });

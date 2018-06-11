@@ -32,6 +32,11 @@ p {
    font-size: 15px;
 }
 
+.chat-window {
+  bottom: 100px;
+  position: relative;
+}
+
 .message-box {
   background-color: white;
   border-radius: 10px;
@@ -53,12 +58,14 @@ p {
 
 .input-container {
    padding: 1px;
+   width: 100%;
 }
 
 .msg-box {
    border-radius: 10px;
    outline: none;
-   width: 90%;
+   width: 80%;
+   position: relative;
    border:1px solid white;
    color: rgba(0, 0, 0, 0.979);
    padding: 12px 10px;
@@ -75,6 +82,14 @@ button[class="sending-button"] {
    border-radius: 100%;
    width: 55px;
    height: 55px;
+}
+
+
+@media only screen and (max-wdith: 460px) {
+  .msg-box {
+    width: 70%;
+    position: relative;
+  }
 }
 
 /* Styles for modal */

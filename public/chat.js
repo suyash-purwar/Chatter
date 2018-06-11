@@ -35,17 +35,6 @@ const simranTips = [
 // This is the object of current user
 // This is created for using user data at different places for verification purposes
 let currentUser;
-// function currentUser() {
-//    return {
-//       currentUser: null,
-//       setCurrentUser(currentUser) {
-//          this.currentUser = currentUser;
-//       },
-//       getCurrentUser() {
-//          return this.currentUser;
-//       }
-//    }
-// }
 
 setsTipForSuccessModal = (data) => {
    let userCaller; let randomTip;
