@@ -21,7 +21,7 @@ app.use(cors());
 app.use(express.static("public"));
 
 // Setting socket.io server
-const io = socket(server);
+const io = socket(port);
 
 // Verify user
 io.on("connection", (socket) => {
