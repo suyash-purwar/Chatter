@@ -1,18 +1,17 @@
-const express = require("express");
-const socket = require("socket.io");
 const cors = require("cors");
+
+// Setting up port
+const port = process.env.PORT || 3000;
+var express = require('express');
+const app = express();
+var server = require('http').Server(app);
+var socket = require('socket.io');
+
+server.listen(port);
 
 const {mongoose} = require("./db/mongoose");
 const {Users} = require("./models/Users");
 const {Message} = require("./models/Messages");
-
-// Setting up port
-const port = process.env.PORT || 3000;
-
-const app = express();
-const server = app.listen(port, () => {
-   console.log(`Started up on port ${port}`);
-});
 
 // Enabling CORS
 app.use(cors());
@@ -20,9 +19,7 @@ app.use(cors());
 // Setting statis folder
 app.use(express.static("public"));
 
-// Setting socket.io server
-const io = socket(server);
-
+const io = socket(server)
 // Verify user
 io.on("connection", (socket) => {
    socket.on("verify_user", (data) => {
