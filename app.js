@@ -1,7 +1,7 @@
 const cors = require("cors");
 
 // Setting up port
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 var express = require('express');
 const app = express();
 var server = require('http').Server(app);
