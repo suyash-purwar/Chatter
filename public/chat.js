@@ -1,5 +1,5 @@
 // Make Connection to socket.io
-const socket = io.connect("http://localhost:3000");
+const socket = io.connect();
 
 // Function which returns random callers
 returnCaller = () => {
