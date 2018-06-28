@@ -1,18 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <style>
+      #loaderBackground {
+         top: 0;
+         left:  0;
+         bottom: 0;
+         right: 0;
+         position: absolute;
+         background: white;
+         z-index: 9999;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+
+      .loader-container {
+         height: 200px;
+         display: flex;
+         align-items: center;
+      }
+
+      .loader-container > div {
+         float: left;
+         margin: 5px;
+         animation-duration: 1s;
+         animation-iteration-count: infinite;
+      }
+
+      .loader-container > div:nth-child(even) {
+         width: 8px;
+         height: 200px;
+         background: #0cebeb;  /* fallback for old browsers */
+         background: -webkit-linear-gradient(to bottom, #29ffc6, #20e3b2, #0cebeb);  /* Chrome 10-25, Safari 5.1-6 */
+         background: linear-gradient(to bottom, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+         border-radius: 10px;
+         animation-name: even-pillar;
+         
+      }
+
+      .loader-container > div:nth-child(odd) {
+         width: 8px;
+         height: 100px;
+         background: #0cebeb;  /* fallback for old browsers */
+         background: -webkit-linear-gradient(to bottom, #29ffc6, #20e3b2, #0cebeb);  /* Chrome 10-25, Safari 5.1-6 */
+         background: linear-gradient(to bottom, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+         border-radius: 8px;
+         animation-name: odd-pillar;
+      }
+
+      @keyframes even-pillar {
+         0% {
+            height: 200px;
+         }
+         
+         25% {
+            height: 10px;
+         }
+         
+         50% {
+            height: 200px;
+         }
+         
+         75% {
+            height: 100px;
+         }
+         
+         100% {
+            height: 200px;
+         }
+      }
+
+      @keyframes odd-pillar {
+         0% {
+            height: 100px;
+         }
+         
+         25% {
+            height: 20px;
+         }
+         
+         50% {
+            height: 100px;
+         }
+         
+         75% {
+            height: 200px;
+         }
+         
+         100% {
+            height: 100px;
+         }
+      }
+   </style>
+   <script type = "text/javascript">
+      window.addEventListener('load', () => {
+         document.getElementById("loaderBackground").style.display = "none";
+      });
+   </script>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <link rel = "stylesheet" href = "style.css">
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   
-
    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
    <title>Chatter</title>
 </head>
 <body>
+
+   <div id = "loaderBackground">
+      <div class = "loader-container">
+         <div class = "pillar-1"></div>
+         <div class = "pillar-2"></div>
+         <div class = "pillar-3"></div>
+         <div class = "pillar-4"></div>
+         <div class = "pillar-5"></div>
+      </div>
+   </div>
 
    <div class="modal fade" data-backdrop = "false" data-keyboard = "false" id = "userBox" data-focus = "true" tabindex="-1" role="dialog" aria-labelledby="example">
       <div class="modal-dialog " role="document">
