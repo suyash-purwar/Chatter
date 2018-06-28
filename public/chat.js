@@ -27,7 +27,7 @@ const induTips = [
 const simranTips = [
    `Drink lot of water babes! Vanasthali is hot`,
    `Go and have some cold drink`,
-   `Don't you dare to forget me *_* `,
+   `Don't you dare to forget me *_* *_* `,
    `Sweety, Listen to me, Don't take too much bath! It will save you a lot of time`,
    `Why don't you text me on facebook or whatsapp...`
 ];
@@ -71,6 +71,7 @@ opensSuccessModal = () => {
    // Closes the suucess alert popup
    setTimeout(() => {
       $('#successAlertPopup').modal('hide');
+      window.scrollTo(0, document.documentElement.scrollHeight);
    }, 3000);
 }
 

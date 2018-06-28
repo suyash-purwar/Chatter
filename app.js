@@ -71,5 +71,3 @@ io.on("connection", (socket) => {
       });
    });
 });
-
-// URI => mongodb://suyash:chatter06@ds251845.mlab.com:51845/chatter
