@@ -28,12 +28,10 @@ io.on("connection", (socket) => {
 
          users.forEach(x => {
             if (x.user_name == data.userData.userName && x.user_password == data.userData.userPassword) {
-
+               wantToSendUnauthorizedUserMessage = false;
                socket.emit("Authorised user", {
                   user_data: x
                });
-               
-               wantToSendUnauthorizedUserMessage = false;
             }
          });
 

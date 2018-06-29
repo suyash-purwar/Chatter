@@ -83,26 +83,26 @@ verifyUser = () => {
          userPassword: document.querySelector("input[name=user_password").value
       }
    });
-
-   // This function executes if and only if the user is authorised
-   socket.on("Authorised user", (data) => {
-      // Hides the Popup box if the user is authorized
-      closeAuthorisationCheckingBox();
-
-      // Assigning data of user to currentUser
-      currentUser = data.user_data;
-      // Setting text to be printed on success alert
-      // This function also opens the modal after setting data into it
-      // This function calls the "openSuccessModal()" for opening it and closing it
-      setsTipForSuccessModal(data);
-      printAllOldMessages();
-   });
-
-   // Shows Unauthorized user message if the user is not in database
-   socket.on("Unauthorized user", (data) => {
-      $("#msgForUnauthUsers").css('display', 'block');
-   });
 }
+
+// This function executes if and only if the user is authorised
+socket.on("Authorised user", (data) => {
+   // Hides the Popup box if the user is authorized
+   closeAuthorisationCheckingBox();
+
+   // Assigning data of user to currentUser
+   currentUser = data.user_data;
+   // Setting text to be printed on success alert
+   // This function also opens the modal after setting data into it
+   // This function calls the "openSuccessModal()" for opening it and closing it
+   setsTipForSuccessModal(data);
+   printAllOldMessages();
+});
+
+// Shows Unauthorized user message if the user is not in database
+socket.on("Unauthorized user", (data) => {
+   $("#msgForUnauthUsers").css('display', 'block');
+});
 
 function sendNewMessage() {
    let msg = document.querySelector("#msg_box").value;
@@ -185,3 +185,28 @@ printAllOldMessages = () => {
       });
    });
 }
+
+// Change the background image
+function returnImages() {
+   let imagesArray = [];
+   for (let i = 2; i <= 7; i++) {
+      imagesArray.push(`assets/images/wallpaper${i}.jpg`);
+   }
+
+   return imagesArray;
+}
+
+let imageIndex = 0;
+function setNextImage(images) {
+   if (imageIndex != 6) {
+      document.getElementsByTagName("body")[0].style.backgroundImage = `url(${images[imageIndex]})`;
+      document.getElementsByTagName("body")[0].style.transition = `.7s`;
+      imageIndex++;
+   } else {
+      imageIndex = 2;
+      document.getElementsByTagName("body")[0].style.backgroundImage = `url(${images[1]})`;
+   }
+
+}
+
+setInterval('setNextImage(returnImages())', 30000);
