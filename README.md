@@ -1,15 +1,8 @@
 # Chatter
 
-#### Hey! Chatter is here. It's a chatting application made with javascript stack. This application is made only and only for my classes of Java. All students and teachers are here. No one can use this application accept my teachers and students. 
+Chatter is a real-time chatting application I built as a side project. I wrote this application for my friends and some teachers. This application is restricted to be used by my friends and teachers. 
 
-## Features
-
-* Login system
-* All old messages come on screen after login
-* Beautiful UI
-* Push notifications on every message
-
-## Technical Related
+### Technical Related
 
 * HTML & CSS
 * JavaScript
@@ -18,11 +11,3 @@
 * NodeJS
 * ExpressJS
 * MongooseJS
-
-## Motivations
-
-##### My teacher and students were my biggest motivations and i also wanted to make it because i love making application and take challanges. That's what developers do! I enjoyed a lot.
-
-## Star
-
-##### Give it a star if you like this appication. Don't forget
